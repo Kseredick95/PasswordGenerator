@@ -24,6 +24,18 @@
             aria-label="Generated Password"
           ></textarea>
         </div>
+        <form action="/action_page.php">
+          <label for="numChar">Number of characters? Must be between 8 and 128</label>
+
+          <input type="text" id="numChar" name="numChar" value=""><br>
+
+          <input type="checkbox" id="specialChar" name="specialChar" value="specialChar">
+          <label for="specialChar">Include special characters?</label><br>
+
+          <input type="checkbox" id="capLetters" name="capLetters" value="Caps">
+          <label for="capLetters">Include capital letters?</label><br>
+
+        </form>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
@@ -32,4 +44,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-80

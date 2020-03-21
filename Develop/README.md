@@ -1,0 +1,3 @@
+This code creates randomly generated code with the parameters chosen by the user. These paramters are to include or not include special character or capital letters, and how many characters should be including within the generated password.
+
+By checking the boxes for special characters or capital letters the user can opt in to using those within the generated password. Unchecking them will tell the code to not include special characters or capital letters in the generated password.

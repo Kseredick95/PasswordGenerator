@@ -1,26 +1,34 @@
 // Assignment Code
 
 var generateBtn = document.querySelector("#generate");
+// var numChar = document.querySelector("#numChar");
+// var specialChar = document.querySelector("#specialChar").checked;
+// var capLetters = document.querySelector("#capLetters").checked;
+
 
 function writePassword() {
-  var numChar = window.prompt("How many characters would you like in your password? Must enter between 8 and 128.")
+  //debugger;
 
-  while (numChar < 8 || numChar > 128){
-    numChar = window.prompt("Invalid number. How many characters would you like in your password? Must enter between 8 and 128.")
-  }
-
-  var capLetter = window.confirm("Would you like to include capital letters?")
-
-  var specialChar = window.confirm("Would you like to include special characters?")
   
-  var password = generatePassword(numChar, capLetter, specialChar);
+  var password = generatePassword(numChar, capLetters, specialChar);
 
 
     var passwordText = document.querySelector("#password");
 
-    function generatePassword(numChar, capLetter, specialChar){
+    function generatePassword(numChar, capLetters, specialChar){
+
+      var numChar = document.querySelector("#numChar").value;
+      var specialChar = document.querySelector("#specialChar").checked;
+      var capLetters = document.querySelector("#capLetters").checked;
+
+      //Alert of invalid numbers
+      if (numChar < 8 || numChar > 128){
+        window.alert("Invalid number. Must enter between 8 and 128.")
+      }
+
+
       //Capital and special characters
-      if (capLetter == true && specialChar == true){
+      if (capLetters == true && specialChar == true){
         var charSet = "abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
         var retVal = ""
         
@@ -31,7 +39,7 @@ function writePassword() {
 
       }
       //Only special characters
-      else if (capLetter == true && specialChar == false){
+      else if (capLetters == true && specialChar == false){
         var charSet = "abcdefghijklmnopqurstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var retVal = ""
         
@@ -42,7 +50,7 @@ function writePassword() {
 
       }
       //Only capital letters
-      else if (capLetter == false && specialChar == true){
+      else if (capLetters == false && specialChar == true){
         var charSet = "abcdefghijklmnopqurstuvwxyz0123456789!@#$%^&*()"
         var retVal = ""
         
@@ -63,7 +71,7 @@ function writePassword() {
         }
 
       }
-
+      
       return retVal;
     }
     
@@ -71,5 +79,6 @@ function writePassword() {
 
   }
 
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", writePassword);
